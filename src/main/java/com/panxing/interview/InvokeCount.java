@@ -13,7 +13,7 @@ public class InvokeCount {
      * @return 这个方法被调用的总次数，支持并发调用
      */
     private static long count() {
-        // todo 这个方法被调用的总次数，支持并发调用
+        // todo
         throw new NotImplementedException();
     }
 
