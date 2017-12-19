@@ -46,6 +46,6 @@ class CountDao {
         if (rand.nextInt(2) == 0) {
             throw new SocketTimeoutException("查询数据库超时！");
         }
-        return System.currentTimeMillis() / 10000;
+        return System.currentTimeMillis() / 10000 % 10;
     }
 }
