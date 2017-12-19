@@ -13,7 +13,7 @@ public class InvokeCount {
     /**
      * @return 这个方法被调用的总次数，支持并发调用
      */
-    public static long count() {
+    private static long count() {
         return COUNTER.incrementAndGet();
     }
 
