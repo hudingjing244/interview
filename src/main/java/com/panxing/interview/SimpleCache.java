@@ -12,6 +12,7 @@ public class SimpleCache {
     private CountDao countDao = new CountDao();
 
     /**
+     * todo
      * countDao 的 queryCount 方法比较慢，每次查询都要等1秒多
      * 改动这个 getCountFromDb 方法，缓存数据，每3秒才调用一次 queryCount 刷新缓存
      * 注意

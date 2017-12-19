@@ -1,5 +1,7 @@
 package com.panxing.interview;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * @author panxing
  */
@@ -11,7 +13,8 @@ public class NextGreatestLetter {
      * (用二分法来做)
      */
     private static char nextGreatestLetter(char[] letters, char target) {
-        return ' ';
+        // todo
+        throw new NotImplementedException();
     }
 
 
