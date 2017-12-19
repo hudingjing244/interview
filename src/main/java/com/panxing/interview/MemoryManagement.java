@@ -9,7 +9,6 @@ import java.util.UUID;
  */
 public class MemoryManagement {
 
-
     /**
      * 调用这个方法后，会报 oom
      */
@@ -20,8 +19,16 @@ public class MemoryManagement {
         }
     }
 
+    /**
+     * 调用这个方法后，会报 stackOverFlow
+     */
+    private static void stackOverFlow() {
+        stackOverFlow();
+    }
+
 
     public static void main(String[] args) {
+//        stackOverFlow();
         oom();
 
     }
