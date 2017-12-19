@@ -1,6 +1,7 @@
 package com.panxing.interview;
 
-import java.util.concurrent.atomic.AtomicLong;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.stream.IntStream;
 
 /**
@@ -8,13 +9,12 @@ import java.util.stream.IntStream;
  */
 public class InvokeCount {
 
-    private static final AtomicLong COUNTER = new AtomicLong(0L);
-
     /**
      * @return 这个方法被调用的总次数，支持并发调用
      */
     private static long count() {
-        return COUNTER.incrementAndGet();
+        // todo 这个方法被调用的总次数，支持并发调用
+        throw new NotImplementedException();
     }
 
     public static void main(String[] args) {
