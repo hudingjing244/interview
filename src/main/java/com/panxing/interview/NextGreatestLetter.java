@@ -7,7 +7,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class NextGreatestLetter {
 
-
     /**
      * Find Smallest Letter Greater Than Target
      * (用二分法来做)
