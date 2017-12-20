@@ -3,13 +3,15 @@ package com.panxing.interview;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
+ * 找到比 target 大的最小字符
+ *
  * @author panxing
  */
 public class NextGreatestLetter {
 
     /**
      * Find Smallest Letter Greater Than Target
-     * (用二分法来做)
+     * (提示：用二分法来做)
      */
     private static char nextGreatestLetter(char[] letters, char target) {
         // todo
