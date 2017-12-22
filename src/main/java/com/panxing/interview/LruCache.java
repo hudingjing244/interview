@@ -6,14 +6,14 @@ import java.util.Map;
 /**
  * @author panxing
  */
-public class LRUCache<K, V> {
+public class LruCache<K, V> {
 
     private final int size;
 
     private int currentSize = 0;
     private Map<K, V> cache = new LinkedHashMap<>(16);
 
-    public LRUCache(int size) {
+    public LruCache(int size) {
         this.size = size;
     }
 
@@ -43,7 +43,7 @@ public class LRUCache<K, V> {
 
     public static void main(String[] args) {
 
-        LRUCache<Integer, Integer> cache01 = new LRUCache<>(2);
+        LruCache<Integer, Integer> cache01 = new LruCache<>(2);
         assert cache01.get(2) == null;
         cache01.put(2, 6);
         assert cache01.get(1) == null;
@@ -53,7 +53,7 @@ public class LRUCache<K, V> {
         assert cache01.get(2) == 6;
 
 
-        LRUCache<Integer, Integer> cache02 = new LRUCache<>(2);
+        LruCache<Integer, Integer> cache02 = new LruCache<>(2);
         cache02.put(1, 1);
         cache02.put(2, 2);
         assert cache02.get(1) == 1;
@@ -74,7 +74,7 @@ public class LRUCache<K, V> {
         assert cache02.get(4) == 4;
 
 
-        LRUCache<Integer, Integer> cache03 = new LRUCache<>(2);
+        LruCache<Integer, Integer> cache03 = new LruCache<>(2);
 
         cache03.put(2, 1);
         cache03.put(1, 1);
