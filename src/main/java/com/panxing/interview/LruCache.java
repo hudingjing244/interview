@@ -1,7 +1,6 @@
 package com.panxing.interview;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * @author panxing
@@ -11,34 +10,18 @@ public class LruCache<K, V> {
 
     private final int size;
 
-    private int currentSize = 0;
-    private Map<K, V> cache = new LinkedHashMap<>(16);
-
     public LruCache(int size) {
         this.size = size;
     }
 
     public void put(K k, V v) {
-        V cacheValue = cache.get(k);
-        if (currentSize < size || cacheValue != null) {
-            if (cacheValue == null) {
-                currentSize++;
-            } else {
-                cache.remove(k);
-            }
-        } else {
-            cache.remove(cache.keySet().iterator().next());
-        }
-        cache.put(k, v);
+        // todo
+        throw new NotImplementedException();
     }
 
     public V get(K k) {
-        V res = cache.get(k);
-        if (res != null) {
-            cache.remove(k);
-            cache.put(k, res);
-        }
-        return res;
+        // todo
+        throw new NotImplementedException();
     }
 
 
@@ -73,7 +56,6 @@ public class LruCache<K, V> {
         assert cache02.get(3) == 3;
 
         assert cache02.get(4) == 4;
-
 
         LruCache<Integer, Integer> cache03 = new LruCache<>(2);
 
