@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class InvokeCount {
 
     /**
-     * @return 这个方法被调用的总次数，支持并发调用
+     * @return 这个方法被调用的总次数，支持并发调用,注意线程安全
      */
     private static long count() {
         // todo

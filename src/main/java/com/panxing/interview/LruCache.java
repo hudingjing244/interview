@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * @author panxing
+ * LRU for Least Recently Used
  */
 public class LruCache<K, V> {
 
