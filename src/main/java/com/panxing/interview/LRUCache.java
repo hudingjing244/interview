@@ -1,6 +1,7 @@
 package com.panxing.interview;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author panxing
@@ -10,7 +11,7 @@ public class LRUCache<K, V> {
     private final int size;
 
     private int currentSize = 0;
-    private LinkedHashMap<K, V> cache = new LinkedHashMap<>(16);
+    private Map<K, V> cache = new LinkedHashMap<>(16);
 
     public LRUCache(int size) {
         this.size = size;
