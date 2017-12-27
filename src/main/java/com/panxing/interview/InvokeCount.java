@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 
 /**
  * @author panxing
+ * 实现 count 方法, 使得 count 方法 第一次被调用 就返回1，第二次被调用 就返回2，第n次被调用，就返回n，支持并发调用
  */
 public class InvokeCount {
 

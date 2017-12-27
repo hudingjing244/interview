@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 
 /**
  * @author panxing
+ * 实现 getCountFromDb  方法，使得 调用 getCountFromDb方法会返回 countDao.queryCount() 的缓存结果
+ * 缓存有失效时间，直接用java 实现，不考虑 redis 等其他组件
  */
 public class SimpleCache {
 

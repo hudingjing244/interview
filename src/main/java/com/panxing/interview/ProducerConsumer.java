@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author panxing
+ * 生产消费者模型， 实现 run 方法，使得 main方法能够在 多核 cpu 的机器上 尽快并且正确的运行完毕
  */
 public class ProducerConsumer {
 

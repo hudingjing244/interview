@@ -4,7 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * 找到比 target 大的最小字符
- *
+ * 二分查找题
  * @author panxing
  */
 public class NextGreatestLetter {
