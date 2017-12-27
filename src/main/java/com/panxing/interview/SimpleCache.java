@@ -1,5 +1,7 @@
 package com.panxing.interview;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.net.SocketTimeoutException;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -18,9 +20,9 @@ public class SimpleCache {
      * 1.客户端会并发调用这个方法
      * 2. queryCount 可能会报错 SocketTimeoutException
      */
-    private long getCountFromDb() throws InterruptedException, SocketTimeoutException {
-        // todo
-        return countDao.queryCount();
+    private long getCountFromDb() {
+        // todo return countDao.queryCount();
+        throw new NotImplementedException();
     }
 
 
@@ -30,7 +32,7 @@ public class SimpleCache {
         IntStream.range(1, target).parallel().forEach(value -> {
             try {
                 System.out.println(cache.getCountFromDb());
-            } catch (InterruptedException | SocketTimeoutException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
