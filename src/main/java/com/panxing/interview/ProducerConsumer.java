@@ -1,5 +1,7 @@
 package com.panxing.interview;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.Random;
 import java.util.concurrent.atomic.LongAdder;
 
@@ -50,10 +52,12 @@ public class ProducerConsumer {
      * todo 如何让这个程序更快跑完？
      */
     private static void run(long targetNum) {
-        for (int i = 0; i < targetNum; i++) {
-            long item = produce();
-            consume(item);
-        }
+//        for (int i = 0; i < targetNum; i++) {
+//            long item = produce();
+//            consume(item);
+//        }
+        // todo
+        throw new NotImplementedException();
     }
 
     public static void main(String[] args) {
