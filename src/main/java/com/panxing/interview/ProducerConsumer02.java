@@ -1,28 +1,44 @@
 package com.panxing.interview;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author panxing
- * 生产消费者模型， 实现 run 方法，使得 main方法能够在 多核 cpu 的机器上 尽快并且正确的运行完毕
+ * 生产消费者模型 v2
+ * <p>
+ * 假设有一个爬虫系统，每次抓取请求，会生产 0到3 条数据
+ * 然后每生产了10条数据的时候，就会把这10条合并成为一条数据并且存入mysql
+ * <p>
+ * 尝试加速这个过程
  */
-public class ProducerConsumer {
+public class ProducerConsumer02 {
+
+    public static class Item {
+
+    }
 
     private static final ThreadLocal<Random> RANDOM_THREAD_LOCAL = ThreadLocal.withInitial(Random::new);
 
     private static final LongAdder ADDER = new LongAdder();
 
-    public static long produce() {
+    public static List<Item> produce() {
+        Random random = RANDOM_THREAD_LOCAL.get();
         try {
-            Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
+            Thread.sleep(random.nextInt(30));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return System.currentTimeMillis();
+        return Arrays.asList(new Item[random.nextInt(4)]);
     }
 
-    public static void consume(long num) {
+    public static void consume(List<Item> items) {
+        if (items.size() != 10) {
+            throw new RuntimeException("消费者每次只能消费10个");
+        }
         try {
             Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
         } catch (InterruptedException e) {
@@ -37,15 +53,20 @@ public class ProducerConsumer {
      * todo 如何让这个程序更快跑完？
      */
     private static void run(long targetNum) {
-        for (int i = 0; i < targetNum; i++) {
-            long item = produce();
-            consume(item);
+        List<Item> buff = new ArrayList<>();
+        while (targetNum > 0) {
+            List<Item> items = produce();
+            buff.addAll(items);
+            while (buff.size() > 10) {
+                targetNum--;
+                consume(buff.subList(0, 10));
+                buff = buff.subList(10, buff.size());
+            }
         }
-//        throw new TodoException();
     }
 
     public static void main(String[] args) {
-        long target = 1000;
+        long target = 200;
 
         long startTime = System.currentTimeMillis();
         run(target);
