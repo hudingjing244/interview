@@ -1,7 +1,5 @@
 package com.panxing.interview;
 
-import com.panxing.interview.util.TodoException;
-
 import java.util.Random;
 import java.util.concurrent.atomic.LongAdder;
 
@@ -11,27 +9,13 @@ import java.util.concurrent.atomic.LongAdder;
  */
 public class ProducerConsumer {
 
-    private static final ThreadLocal<Random> RANDOM_THREAD_LOCAL = new ThreadLocal<>();
+    private static final ThreadLocal<Random> RANDOM_THREAD_LOCAL = ThreadLocal.withInitial(Random::new);
 
     private static final LongAdder ADDER = new LongAdder();
 
-    public static Random getRandom() {
-        Random random = RANDOM_THREAD_LOCAL.get();
-        if (random == null) {
-            synchronized (ProducerConsumer.class) {
-                random = RANDOM_THREAD_LOCAL.get();
-                if (random == null) {
-                    random = new Random();
-                    RANDOM_THREAD_LOCAL.set(random);
-                }
-            }
-        }
-        return random;
-    }
-
     public static long produce() {
         try {
-            Thread.sleep(getRandom().nextInt(30));
+            Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -40,7 +24,7 @@ public class ProducerConsumer {
 
     public static void consume(long num) {
         try {
-            Thread.sleep(getRandom().nextInt(30));
+            Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -53,11 +37,11 @@ public class ProducerConsumer {
      * todo 如何让这个程序更快跑完？
      */
     private static void run(long targetNum) {
-//        for (int i = 0; i < targetNum; i++) {
-//            long item = produce();
-//            consume(item);
-//        }
-        throw new TodoException();
+        for (int i = 0; i < targetNum; i++) {
+            long item = produce();
+            consume(item);
+        }
+//        throw new TodoException();
     }
 
     public static void main(String[] args) {
@@ -70,6 +54,7 @@ public class ProducerConsumer {
         if (target != ADDER.longValue()) {
             System.out.println("没有调用完吧。。");
         }
+        RANDOM_THREAD_LOCAL.remove();
     }
 
 }
