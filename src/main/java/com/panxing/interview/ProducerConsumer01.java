@@ -41,7 +41,6 @@ public class ProducerConsumer01 {
             long item = produce();
             consume(item);
         }
-//        throw new TodoException();
     }
 
     public static void main(String[] args) {
