@@ -9,20 +9,27 @@ import java.util.concurrent.atomic.LongAdder;
  */
 public class ProducerConsumer01 {
 
+    private static class Data {
+
+    }
+
     private static final ThreadLocal<Random> RANDOM_THREAD_LOCAL = ThreadLocal.withInitial(Random::new);
 
     private static final LongAdder ADDER = new LongAdder();
 
-    public static long produce() {
+    public static Data produce() {
         try {
             Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return System.currentTimeMillis();
+        return new Data();
     }
 
-    public static void consume(long num) {
+    public static void consume(Data data) {
+        if (data == null) {
+            throw new RuntimeException();
+        }
         try {
             Thread.sleep(RANDOM_THREAD_LOCAL.get().nextInt(30));
         } catch (InterruptedException e) {
@@ -38,8 +45,8 @@ public class ProducerConsumer01 {
      */
     private static void run(long targetNum) {
         for (int i = 0; i < targetNum; i++) {
-            long item = produce();
-            consume(item);
+            Data data = produce();
+            consume(data);
         }
     }
 

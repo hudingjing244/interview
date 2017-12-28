@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.LongAdder;
  */
 public class ProducerConsumer02 {
 
-    public static class Item {
+    private static class Data {
 
     }
 
@@ -25,18 +25,18 @@ public class ProducerConsumer02 {
 
     private static final LongAdder ADDER = new LongAdder();
 
-    public static List<Item> produce() {
+    public static List<Data> produce() {
         Random random = RANDOM_THREAD_LOCAL.get();
         try {
             Thread.sleep(random.nextInt(30));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return Arrays.asList(new Item[random.nextInt(4)]);
+        return Arrays.asList(new Data[random.nextInt(4)]);
     }
 
-    public static void consume(List<Item> items) {
-        if (items.size() != 10) {
+    public static void consume(List<Data> data) {
+        if (data.size() != 10) {
             throw new RuntimeException("消费者每次只能消费10个");
         }
         try {
@@ -53,10 +53,10 @@ public class ProducerConsumer02 {
      * todo 如何让这个程序更快跑完？
      */
     private static void run(long targetNum) {
-        List<Item> buff = new ArrayList<>();
+        List<Data> buff = new ArrayList<>();
         while (targetNum > 0) {
-            List<Item> items = produce();
-            buff.addAll(items);
+            List<Data> data = produce();
+            buff.addAll(data);
             while (buff.size() > 10) {
                 targetNum--;
                 consume(buff.subList(0, 10));
