@@ -1,5 +1,6 @@
 package com.panxing.interview;
 
+import com.panxing.interview.util.TodoException;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.net.SocketTimeoutException;
@@ -24,7 +25,7 @@ public class SimpleCache {
      */
     private long getCountFromDb() {
         // todo return countDao.queryCount();
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
 

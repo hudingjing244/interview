@@ -1,6 +1,6 @@
 package com.panxing.interview;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import com.panxing.interview.util.TodoException;
 
 /**
  * @author panxing
@@ -16,12 +16,12 @@ public class LruCache<K, V> {
 
     public void put(K k, V v) {
         // todo
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
     public V get(K k) {
         // todo
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
 

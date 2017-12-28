@@ -1,6 +1,6 @@
 package com.panxing.interview;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import com.panxing.interview.util.TodoException;
 
 import java.util.Random;
 import java.util.concurrent.atomic.LongAdder;
@@ -57,8 +57,7 @@ public class ProducerConsumer {
 //            long item = produce();
 //            consume(item);
 //        }
-        // todo
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
     public static void main(String[] args) {

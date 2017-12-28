@@ -1,6 +1,6 @@
 package com.panxing.interview;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import com.panxing.interview.util.TodoException;
 
 /**
  * @author panxing
@@ -14,7 +14,7 @@ public class MemoryManagement {
      */
     private static void oom() {
         // todo
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
     /**
@@ -22,7 +22,7 @@ public class MemoryManagement {
      */
     private static void stackOverFlow() {
         // todo 
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
 

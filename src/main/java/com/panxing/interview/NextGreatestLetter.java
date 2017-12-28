@@ -1,10 +1,11 @@
 package com.panxing.interview;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import com.panxing.interview.util.TodoException;
 
 /**
  * 找到比 target 大的最小字符
  * 二分查找题
+ *
  * @author panxing
  */
 public class NextGreatestLetter {
@@ -15,7 +16,7 @@ public class NextGreatestLetter {
      */
     private static char nextGreatestLetter(char[] letters, char target) {
         // todo
-        throw new NotImplementedException();
+        throw new TodoException();
     }
 
 
