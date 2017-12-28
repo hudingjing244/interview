@@ -1,7 +1,6 @@
 package com.panxing.interview;
 
 import com.panxing.interview.util.TodoException;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.net.SocketTimeoutException;
 import java.util.Random;
@@ -24,7 +23,7 @@ public class SimpleCache {
      * 2. queryCount 可能会报错 SocketTimeoutException
      */
     private long getCountFromDb() {
-        // todo return countDao.queryCount();
+        /// todo return countDao.queryCount();
         throw new TodoException();
     }
 
@@ -47,9 +46,12 @@ class CountDao {
 
     private Random rand = new Random();
 
+    /**
+     * 不仅慢，而且经常报错的接口，这个方法不能改动
+     */
     long queryCount() throws InterruptedException, SocketTimeoutException {
         Thread.sleep(1000);
-        if (rand.nextInt(2) == 0) {
+        if (rand.nextInt(4) == 0) {
             throw new SocketTimeoutException("查询数据库超时！");
         }
         return System.currentTimeMillis() / 10000 % 10;
