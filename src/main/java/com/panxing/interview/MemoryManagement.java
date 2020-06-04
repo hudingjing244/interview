@@ -4,7 +4,7 @@ import com.panxing.interview.util.TodoException;
 
 /**
  * @author panxing
- * 尽量用剪短的代码 产生 oom 和 Stack Overflow， 当然不要直接 throw 。。。
+ * 尽量用简短的代码 产生 oom 和 Stack Overflow， 当然不要直接 throw 。。。
  * do not do it at home!
  */
 public class MemoryManagement {
