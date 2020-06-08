@@ -19,7 +19,7 @@ def produce():
 def consume(message_list):
     for m in message_list:
         time.sleep(1)
-        logging.error('message:' + m + ' has been consumed')
+        logging.info('message:' + m + ' has been consumed')
 
 
 if __name__ == '__main__':
